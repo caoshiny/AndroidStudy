@@ -1,6 +1,7 @@
 package com.shiny.androiddemo.storage;
 
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -32,14 +33,14 @@ public class FileWriteActivity extends AppCompatActivity {
         write.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // 外部存储-私有空间
-                // String directory = getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS).toString();
+                // 外部存储-私有空间 卸载应用app存储文件也跟随卸载
+                String directory = getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS).toString();
 
-                // 外部存储-公用空间
+                // 外部存储-公用空间 卸载应用app存储文件保留
                 // String directory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString();
 
-                // 内部存储-私有空间
-                String directory = getFilesDir().toString();
+                // 内部存储-私有空间 空间小不是存储到sd卡上
+                // String directory = getFilesDir().toString();
 
                 path = directory + File.separatorChar + "shiny.txt";
                 Log.i(TAG, "onClick: " + path);
@@ -51,6 +52,7 @@ public class FileWriteActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String content = FileUtil.readText(path);
+                Log.i(TAG, "onClick: " + path);
                 showContent.setText(content);
             }
         });
