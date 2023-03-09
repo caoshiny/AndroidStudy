@@ -13,7 +13,7 @@ import com.shiny.androiddemo.utils.ToastUtil;
 
 public class SpinnerActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    private final static String[] starArray = {"火星", "金星", "地球", "火星", "木星", "土星"};
+    private final static String[] starArray = {"▯  竖条形", "○  圆形"};
 
     private Spinner spinner;
 
