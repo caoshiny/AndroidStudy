@@ -2,7 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants">
+    <!-- 阻止下级控件获取焦点 -->
 
     <ImageView
         android:id="@+id/iv_icon"
@@ -31,5 +33,14 @@
             android:textSize="40sp"/>
 
     </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/btn_operate"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/play"
+        android:scaleType="fitCenter"
+        android:background="#ffffff"/>
+
 
 </LinearLayout>
