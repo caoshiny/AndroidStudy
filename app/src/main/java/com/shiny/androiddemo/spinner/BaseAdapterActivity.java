@@ -8,7 +8,7 @@ import android.widget.Spinner;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.shiny.androiddemo.R;
-import com.shiny.androiddemo.adapter.PlanetBaseAdapter;
+import com.shiny.androiddemo.adapter.PlantBaseAdapter;
 import com.shiny.androiddemo.spinner.bean.Plant;
 import com.shiny.androiddemo.utils.ToastUtil;
 
@@ -25,7 +25,7 @@ public class BaseAdapterActivity extends AppCompatActivity implements AdapterVie
 
         spinner = findViewById(R.id.sp_plant);
         plants = Plant.getDefaultList();
-        PlanetBaseAdapter adapter = new PlanetBaseAdapter(this, plants);
+        PlantBaseAdapter adapter = new PlantBaseAdapter(this, plants);
         spinner.setAdapter(adapter);
         spinner.setSelection(0);
         spinner.setOnItemSelectedListener(this);
