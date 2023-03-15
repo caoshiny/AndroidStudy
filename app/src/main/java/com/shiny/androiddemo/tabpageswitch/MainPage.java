@@ -51,6 +51,7 @@ public class MainPage extends AppCompatActivity implements View.OnClickListener 
         fragmentList.add(BlankFragment.newInstance("mine"));
         MyFragmentPagerAdapter myFragmentPagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), getLifecycle(), fragmentList);
         viewPager.setAdapter(myFragmentPagerAdapter);
+        viewPager.setUserInputEnabled(false);
 
         // 监听Fragment的界面变化
         viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
