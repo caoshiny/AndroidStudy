@@ -1,14 +1,14 @@
 package com.shiny.androiddemo;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.shiny.androiddemo.utils.ConvertUtil;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.shiny.androiddemo.utils.ToastUtil;
+import com.shiny.androiddemo.utils.WifiUtil;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,9 +22,13 @@ public class MainActivity extends AppCompatActivity {
         Button button = findViewById(R.id.btn);
         button.setTextSize(50);
         button.setOnClickListener(view -> {
-            Intent intent = new Intent();
-            intent.setClass(MainActivity.this, MainActivity2.class);
-            startActivity(intent);
+            if (WifiUtil.isConnectedTo("ChinaNet-8536", MainActivity.this)) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, MainActivity2.class);
+                startActivity(intent);
+            } else {
+                ToastUtil.show(MainActivity.this, "未连接至指定wifi！");
+            }
         });
     }
 }
